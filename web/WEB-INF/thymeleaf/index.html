@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+    <tr align="center">
+        <th scope="col">#</th>
+        <th scope="col">商品编号</th>
+        <th scope="col">商品名称</th>
+        <th scope="col">商品库存</th>
+        <th scope="col">商品价格</th>
+        <th scope="col">商品状态</th>
+        <th scope="col">商品操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr align="center" th:each="p:${productList}">
+        <th scope="row" th:text="${pStat.index+1}">1</th>
+        <td th:text="${p.id}">Mark</td>
+        <td th:text="${p.name}">Otto</td>
+        <td th:text="${p.sum}">@mdo</td>
+        <td th:text="${p.price}">@mdo</td>
+        <td th:text="${p.status.name}">@mdo</td>
+        <td>
+            <a th:href="@{/product/selectOne(product_id=${p.id})}" class="btn btn-info btn-sm active" role="button" aria-pressed="true">修改</a>
+            <a href="#" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">删除</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
